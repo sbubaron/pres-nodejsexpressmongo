@@ -27,6 +27,13 @@
 		<div class="slides">
 			<section data-background-image="images/title-slide.jpg">
 				<h1>Getting Started with NodeJS, Express and MongoDB</h1>
+				
+			</section>
+			<section>
+				<h1>NODEJS Stack 101</h1>
+				<h2>Prerequisites</h2>
+				Clone the Repo:<br /> <a href="https://github.com/sbubaron/pres-nodejsexpressmongo">https://github.com/sbubaron/pres-nodejsexpressmongo</a><br /><br />
+				Download NodeJS:<br /> <a href="http://www.nodejs.org">http://www.nodejs.org</a> (Should have something either v6 or v8)<br />
 			</section>
 			<section><h1>LAMP vs MEAN</h1>
 				<img style="width: 400px;" src="images/mean-lamp.jpg" />
@@ -139,7 +146,87 @@ From Wikipedia -- https://en.wikipedia.org/wiki/Node.js
 						</aside>
 				</section>
 			</section>
+
+			<section>
+				<section><h1>Helloooo World</h1>
+					<p>It's Time to Start Getting Our Hands Dirty</p></section>
 			
+				<section>
+					
+						Clone the Repo:<br /> <a href="https://github.com/sbubaron/pres-nodejsexpressmongo">https://github.com/sbubaron/pres-nodejsexpressmongo</a><br /><br />
+						Download NodeJS:<br /> <a href="http://www.nodejs.org">http://www.nodejs.org</a><br /><br />
+						Text Editor (VSCode Recommended):<br /> <a href="http://www.vscode.com">http://www.vscode.com</a><br /><br />
+						GIT: <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> (Windows)<br /><br />
+				</section>
+				<section><img src="images/nodev.jpg" /></section>
+				<section>Explore The Code</section>
+			</section>
+			<section>
+				<section><h1>Awesome...<br />...but uh...<br />...now what?</h1>
+				</section>
+				<section>
+					<h1>Let's Power Up Our Tooling</h1>
+						<iframe src="https://giphy.com/embed/103ZH3eKKKCKo8" width="480" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+						<aside class="notes">
+								We're going to get into a more meaty example, but fist, lets power up our tooling...
+							</aside>
+			
+				</section>
+
+				<section>
+					<img src="images/nodemon.jpg" />
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>General Coding Best Practices</h1>
+				</section>
+				<section>
+						<p>Keep in Mind the Concept of Separations of Concerns</p>
+						<aside class="notes">
+								Write & Use Small Reusable, Testable Modules
+								The best code is often times no (or less code).
+								The more you can reuse, the less you have to test.
+							</aside>
+					</section>
+				
+				<section>
+					<p>Don’t Reinvent the Wheel; Reuse often</p>
+				</section>
+				<section>
+						<p>Don’t Manage External Dependencies By Hand <br />& Don't Commit "Compiled Code"</p>
+						<aside class="notes">
+								Source control works best on "source", and while external dependcies can sometimes be source, its best to manage them separate from our own code so we can more easily upgrade or swap them in and out. 
+							</aside>
+					</section>
+				
+							<section>
+									<p>Dev Team should all use same versions of libraries</p>
+									<aside class="notes">
+										One of the biggest issues with the LAMP stack was mirroring your dev environment with production and keeping development environments across all developers in sync easily. 
+									</aside>
+								</section>
+
+								
+
+			</section>
+			<section>
+				<section><h1>NPM & Package Management</h1></section>
+				<section>Node.js' package ecosystem, npm, is the <strong>largest collection</strong> of open source libraries in the world.</section>
+				<section>Developers list modules they need in package.json -- modules can either be marked as required for production or just for development</section>
+<section>Developers can choose specific versions or specify rules about what versions they want</section>
+<section>Package.json gets committed to repo, while modules themselves stay out. During deployment or dev setup, just run npm install to get the right packages.</section>
+<section>Handles the complexities of the dependency chain </section>
+
+			
+			</section>
+			<section>
+			<section><h1>MVC</h1></section>
+			<section>
+				<blockquote>"At the heart of MVC is what I call Separated Presentation. The idea behind Separated Presentation is to make a clear division between domain objects that model our perception of the real world, and presentation objects that are the GUI elements we see on the screen. Domain objects should be completely self contained and work without reference to the presentation, they should also be able to support multiple presentations, possibly simultaneously." -- Martin Fowler</blockquote>
+			</section>
+			<section><img src="images/mvc.jpg" /></section>
+		</section>
 		</div>
 	</div>
 	
