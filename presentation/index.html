@@ -1,49 +1,166 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<title>reveal.js</title>
+	
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/theme/presentation.css">
+	
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background-image="images/title-slide.jpg">
+				<h1>Getting Started with NodeJS, Express and MongoDB</h1>
+			</section>
+			<section><h1>LAMP vs MEAN</h1>
+				<img style="width: 400px;" src="images/mean-lamp.jpg" />
+				
+				<aside class="notes">
+					The LAMP stack is a popular platform consisting of Linux Apache, MySQL and PHP -- now certainly you can swap in and out pieces you need (WAMP Windows***, LEMP: *nginx** etc, ***Perl/PHP/Python). The focus here revolves mainly around the server side infrastructure and each tool really requires a unique skillset or atleast fairly heavy initial setup and configuration
+					The MEAN (Mongo, Express, Angular, Node) stack became popular because it simplified the initial setup and for developers standardized on a single language that could be used across the entire stack (Javascript).
+					For this talk we are going to focus on the server side Node, Express and Mongo as the Angular piece itself can easily be substituted for whatever client side framework of your choosing. 
+				</aside>
+			</section>
+			
+			<section>
+				<section>
+					<h1>What Exactly is NodeJS?</h1>
+				</section>
+				<section>
+					<blockquote>
+						<p>"Node.js is a JavaScript <strong>runtime</strong> built on Chrome's V8 JavaScript <strong>engine</strong>.</p> <p>Node.js uses an <strong>event-driven, non-blocking</strong> I/O model that makes it lightweight and efficient."</p>
+					</blockquote>
+					<aside class="notes">
+						Official definition from nodejs.org 
+					</aside>
+				</section>
+				<section>
+					<iframe src="https://giphy.com/embed/wXnkY2L6sxegM" width="473" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+					<p><a class="small-link" href="https://www.giphy.com">Thanks Giphy!</a></p>
+					<aside class="notes">
+						Yeah, there was alot of buzz words in that, lets unbox it a bit. 
+					</aside>
+				</section>
+				
+				<section>
+					
+					<h1>JS Engines</h1>
+					<p>Parse Javascript and converts it into code that can actually be executed.</p>
+					<aside class="notes">
+						Chrome V8 JS
+						
+						Open Source Engine Developed by Chromium Project
+						First Release September 2008
+						
+						Designed to be Used both in Browser and Standalone
+						Single Threaded
+						
+						Big Users: Chrome/Chromium, Opera, Couchbase DB, NodeJS, Electron
+						
+						Other engines include: Chakra (IE), SpiderMonkey (Mozilla/Firefox), JavaScriptCore (Safari)
+						
+						Its because of these different engines and the subtle differences in which they implement the JS Spec that JS behaves differently across browsers. 
+					</aside>
+				</section>
+				
+				<section>
+					
+					<h1>JS Runtimes</h1>
+					<p>Provide additional objects that JS can interact with.</p>
+					<aside class="notes">
+						In browsers these objects include the "window" & "dom". 
+						
+						In nodejs these include "require", "buffers" and "process"
+						
+					</aside>
+				</section>
+				
+				<section>
+					
+					<h1>Cross-Language</h1>
+					<aside class="notes">
+						Can be written in JS, CoffeeScript, Dart or TypeScript
+					</aside>
+				</section>
+				<section>
+					<h1>Cross-Platform</h1>
+					<aside class="notes">
+						OSX, Windows, Linux & Unix
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Why was NodeJS Created?</h1>
+					<aside class="notes">
+							Ryan Dahl was inspired to create Node.js after seeing a file upload progress bar on Flickr. The browser did not know how much of the file had been uploaded and had to query the Web server. Dahl desired an easier way.
+He criticized the limited possibilities of the most popular web server in 2009, Apache HTTP Server, to handle a lot of concurrent connections (up to 10,000 and more) and the most common way of creating code (sequential programming), when code either blocked the entire process or implied multiple execution stacks in the case of simultaneous connections.
+From Wikipedia -- https://en.wikipedia.org/wiki/Node.js
+						</aside>
+				</section>
+				<section>
+						yeah but...If NodeJS is Single Threaded...how can it possibly scale better and handle multiple requests simultaneously?
 
-		<title>reveal.js</title>
+				</section>
+				<section>
+						<iframe src="https://giphy.com/embed/3EV74tm43smVa" width="378" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				</section>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+				<section>
+						<img src="images/eventloop.png" />
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+						<aside class="notes">
+								<p>Even though V8 is single-threaded, the underlying C++ API of Node isn't. </p>
+								<p>Uses libuv to handle asynchronous events -- Libuv is an abstraction layer for network and file system functionality on both Windows and POSIX-based systems like Linux, Mac OS X, OSS on NonStop and Unix.</p>
+								<p>When we call something that is a non-blocking operation, Node will call some code that will run concurrently with our javascript code under the hood on its own thread.</p>
+								<p>Once that thread either throws an error or gets the data it is waiting for, the provided callback gets called with the appropriate parameters</p>
+								<p>IO operations can be orders of magnitude slower than data processing. Take this for example: SSD-s can have a read speed of 200-730 MB/s - at least a high-end one. Reading just one kilobyte of data would take 1.4 microseconds, but during this time a CPU clocked at 2GHz could have performed 28 000 of instruction-processing cycles.</p>
+								https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
+								https://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm
+								https://nodesource.com/blog/understanding-the-nodejs-event-loop
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+
+						</aside>
+				</section>
+			</section>
+			
 		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+	</div>
+	
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			progress: true,
+			history: true,
+			slideNumber: false,
+			dependencies: [
+			{ src: 'plugin/markdown/marked.js' },
+			{ src: 'plugin/markdown/markdown.js' },
+			{ src: 'plugin/notes/notes.js', async: true },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
 </html>

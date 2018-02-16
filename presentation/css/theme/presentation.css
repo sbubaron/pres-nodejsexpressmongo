@@ -1,0 +1,15 @@
+.reveal h1 {
+  font-size: 1.75em; }
+
+.reveal img.inline {
+  display: inline-block; }
+
+.reveal a.small-link {
+  font-size: 0.6em; }
+
+.reveal blockquote strong {
+  color: #cc9463;
+  font-weight: 800; }
+
+.reveal p {
+  max-width: 1100px; }
