@@ -26,7 +26,7 @@ router.use(cors(corsOptions));
 router.options('*', cors(corsOptions));
 
 router.get('/', cors(corsOptions), quotesController.findAll);
-router.get('/by-character/:character', cors(corsOptions), quotesController.findByTag);  
+router.get('/by-character/:character', cors(corsOptions), quotesController.findByCharacter);  
 router.get('/:id', cors(corsOptions), quotesController.findOne);
 
 //create  

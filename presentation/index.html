@@ -116,138 +116,349 @@
 				<section>
 					<h1>Why was NodeJS Created?</h1>
 					<aside class="notes">
-							Ryan Dahl was inspired to create Node.js after seeing a file upload progress bar on Flickr. The browser did not know how much of the file had been uploaded and had to query the Web server. Dahl desired an easier way.
-He criticized the limited possibilities of the most popular web server in 2009, Apache HTTP Server, to handle a lot of concurrent connections (up to 10,000 and more) and the most common way of creating code (sequential programming), when code either blocked the entire process or implied multiple execution stacks in the case of simultaneous connections.
-From Wikipedia -- https://en.wikipedia.org/wiki/Node.js
-						</aside>
+						Ryan Dahl was inspired to create Node.js after seeing a file upload progress bar on Flickr. The browser did not know how much of the file had been uploaded and had to query the Web server. Dahl desired an easier way.
+						He criticized the limited possibilities of the most popular web server in 2009, Apache HTTP Server, to handle a lot of concurrent connections (up to 10,000 and more) and the most common way of creating code (sequential programming), when code either blocked the entire process or implied multiple execution stacks in the case of simultaneous connections.
+						From Wikipedia -- https://en.wikipedia.org/wiki/Node.js
+					</aside>
 				</section>
 				<section>
-						yeah but...If NodeJS is Single Threaded...how can it possibly scale better and handle multiple requests simultaneously?
-
+					yeah but...If NodeJS is Single Threaded...how can it possibly scale better and handle multiple requests simultaneously?
+					
 				</section>
 				<section>
-						<iframe src="https://giphy.com/embed/3EV74tm43smVa" width="378" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+					<iframe src="https://giphy.com/embed/3EV74tm43smVa" width="378" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 				</section>
-
+				
 				<section>
-						<img src="images/eventloop.png" />
-
-						<aside class="notes">
-								<p>Even though V8 is single-threaded, the underlying C++ API of Node isn't. </p>
-								<p>Uses libuv to handle asynchronous events -- Libuv is an abstraction layer for network and file system functionality on both Windows and POSIX-based systems like Linux, Mac OS X, OSS on NonStop and Unix.</p>
-								<p>When we call something that is a non-blocking operation, Node will call some code that will run concurrently with our javascript code under the hood on its own thread.</p>
-								<p>Once that thread either throws an error or gets the data it is waiting for, the provided callback gets called with the appropriate parameters</p>
-								<p>IO operations can be orders of magnitude slower than data processing. Take this for example: SSD-s can have a read speed of 200-730 MB/s - at least a high-end one. Reading just one kilobyte of data would take 1.4 microseconds, but during this time a CPU clocked at 2GHz could have performed 28 000 of instruction-processing cycles.</p>
-								https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
-								https://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm
-								https://nodesource.com/blog/understanding-the-nodejs-event-loop
-
-
-						</aside>
+					<img src="images/eventloop.png" />
+					
+					<aside class="notes">
+						<p>Even though V8 is single-threaded, the underlying C++ API of Node isn't. </p>
+						<p>Uses libuv to handle asynchronous events -- Libuv is an abstraction layer for network and file system functionality on both Windows and POSIX-based systems like Linux, Mac OS X, OSS on NonStop and Unix.</p>
+						<p>When we call something that is a non-blocking operation, Node will call some code that will run concurrently with our javascript code under the hood on its own thread.</p>
+						<p>Once that thread either throws an error or gets the data it is waiting for, the provided callback gets called with the appropriate parameters</p>
+						<p>IO operations can be orders of magnitude slower than data processing. Take this for example: SSD-s can have a read speed of 200-730 MB/s - at least a high-end one. Reading just one kilobyte of data would take 1.4 microseconds, but during this time a CPU clocked at 2GHz could have performed 28 000 of instruction-processing cycles.</p>
+						https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
+						https://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm
+						https://nodesource.com/blog/understanding-the-nodejs-event-loop
+						
+						
+					</aside>
 				</section>
 			</section>
-
+			
 			<section>
 				<section><h1>Helloooo World</h1>
 					<p>It's Time to Start Getting Our Hands Dirty</p></section>
-			
-				<section>
 					
+					<section>
+						
 						Clone the Repo:<br /> <a href="https://github.com/sbubaron/pres-nodejsexpressmongo">https://github.com/sbubaron/pres-nodejsexpressmongo</a><br /><br />
 						Download NodeJS:<br /> <a href="http://www.nodejs.org">http://www.nodejs.org</a><br /><br />
 						Text Editor (VSCode Recommended):<br /> <a href="http://www.vscode.com">http://www.vscode.com</a><br /><br />
 						GIT: <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> (Windows)<br /><br />
-				</section>
-				<section><img src="images/nodev.jpg" /></section>
-				<section>Explore The Code</section>
-			</section>
-			<section>
-				<section><h1>Awesome...<br />...but uh...<br />...now what?</h1>
+					</section>
+					<section><img src="images/nodev.jpg" /></section>
+					<section>Explore The Code</section>
 				</section>
 				<section>
-					<h1>Let's Power Up Our Tooling</h1>
+					<section><h1>Awesome...<br />...but uh...<br />...now what?</h1>
+					</section>
+					<section>
+						<h1>Let's Power Up Our Tooling</h1>
 						<iframe src="https://giphy.com/embed/103ZH3eKKKCKo8" width="480" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 						<aside class="notes">
-								We're going to get into a more meaty example, but fist, lets power up our tooling...
-							</aside>
-			
-				</section>
-
-				<section>
-					<img src="images/nodemon.jpg" />
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>General Coding Best Practices</h1>
+							We're going to get into a more meaty example, but fist, lets power up our tooling...
+						</aside>
+						
+					</section>
+					
+					<section>
+						<img src="images/nodemon.jpg" />
+					</section>
 				</section>
 				<section>
+					<section>
+						<h1>General Coding Best Practices</h1>
+					</section>
+					<section>
 						<p>Keep in Mind the Concept of Separations of Concerns</p>
 						<aside class="notes">
-								Write & Use Small Reusable, Testable Modules
-								The best code is often times no (or less code).
-								The more you can reuse, the less you have to test.
-							</aside>
+							Write & Use Small Reusable, Testable Modules
+							The best code is often times no (or less code).
+							The more you can reuse, the less you have to test.
+						</aside>
 					</section>
-				
-				<section>
-					<p>Don’t Reinvent the Wheel; Reuse often</p>
-				</section>
-				<section>
+					
+					<section>
+						<p>Don’t Reinvent the Wheel; Reuse often</p>
+					</section>
+					<section>
 						<p>Don’t Manage External Dependencies By Hand <br />& Don't Commit "Compiled Code"</p>
 						<aside class="notes">
-								Source control works best on "source", and while external dependcies can sometimes be source, its best to manage them separate from our own code so we can more easily upgrade or swap them in and out. 
-							</aside>
+							Source control works best on "source", and while external dependcies can sometimes be source, its best to manage them separate from our own code so we can more easily upgrade or swap them in and out. 
+						</aside>
 					</section>
-				
+					
+					<section>
+						<p>Dev Team should all use same versions of libraries</p>
+						<aside class="notes">
+							One of the biggest issues with the LAMP stack was mirroring your dev environment with production and keeping development environments across all developers in sync easily. 
+						</aside>
+					</section>
+					
+					
+					
+				</section>
+				<section>
+					<section><h1>NPM & Package Management</h1></section>
+					<section>Node.js' package ecosystem, npm, is the <strong>largest collection</strong> of open source libraries in the world.</section>
+					<section>Developers list modules they need in package.json -- modules can either be marked as required for production or just for development</section>
+					<section>Developers can choose specific versions or specify rules about what versions they want</section>
+					<section>Package.json gets committed to repo, while modules themselves stay out. During deployment or dev setup, just run npm install to get the right packages.</section>
+					<section>Handles the complexities of the dependency chain </section>
+					
+					
+				</section>
+				<section>
+					<section><h1>MVC</h1></section>
+					<section>
+						<blockquote>"At the heart of MVC ... is to make a clear division between domain objects that model our perception of the real world, and presentation objects that are the GUI elements we see on the screen." -- Martin Fowler</blockquote>
+					</section>
+					<section>
+						<img src="images/mvc.jpg" />
+						<aside class="notes">
+							Models define our "real world objects"
+							Routes forward the supported requests (and any information encoded in request URLs) to the appropriate controller functions.
+							Controller functions to get the requested data from the models, create an HTML page displaying the data, and return it to the user to view in the browser.
+							Views (templates) used by the controllers to render the data.
+							
+							
+						</aside>
+					</section>
+					
+					
+				</section>
+				<section>
+					<section><h1>What is Express?</h1></section>
+					<section>Lightly Opinionated Framework on top of Node to help build Web Apps & API’s</section>
+					<section>“De-Facto Standard Web Server for Node Apps”</section>
+					<section>Reduces Amount of Code Needed</section>
+					<section>Helps manage routes & handling of requests and views</section>
+					<section>Supports many different template engines including Jade and Embedded JS</section>
+					<section>Install Express Generator
+						<img style="width: 900px" src="images/express-install.jpg" />
+					</section>
+					<section>Explore The Code</section>
+				</section>
+				<section>
+					<section><h1>Awesome...<br />...but uh...<br />...now what?</h1></section>
+				</section>
+				<section>
+					<section><h1>Dealing With Data</h1></section>
+				</section>
+				<section>
+					<section>			<h2>Relational DBs</h2> 		</section>
+					<section>Data Organized into one or more tables</section>
+					<section>Tables consists of rows (records) and columns (fields)</section>
+					<section>Each row identified by a key</section>
+					<section>Can join data from different tables through keys</section>
+					<section>Data is queried, created, updated and deleted using SQL</section>
+					<section>...And this is great if</section>
+					<section>Your data is highly and consistently structured</section>
+					<section>Your data has relationships between each other</section>
+					
+					<section>You Need ACID transactional consistency
+						<aside class="notes">
+							In computer science, ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc. In the context of databases, a sequence of database operations that satisfies the ACID properties, and thus can be perceived as a single logical operation on the data, is called a transaction. For example, a transfer of funds from one bank account to another, even involving multiple changes such as debiting one account and crediting another, is a single transaction.
+							Atomic = All or nothing, if one part fails the entire transaction fails
+							Consistency = Any transaction will bring the datbase from one valid state to another valid Started
+							Isolation = esures concurrent execution of transactions results in a system state that would be obtained if transactions were executed sequentially
+							Durability = once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors.
+							https://en.wikipedia.org/wiki/ACID
+						</aside>
+					</section>
+					<section>Your Data is Easily Normalized</section>
+					<section>But...We know that data can be moody</section>
+					
+					
+					<section><iframe src="https://giphy.com/embed/3o7TKEJDLnrpqu11ni" width="480" height="330" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></section>
+					<section>Complex Data Can Be Hard To Model</section>
+					<section>Maybe you have semi-structured data</section>
+					<section>You May Experience Performance problems associated with re-assembling simple data structures into their more complicated real-world representations. </section>
+					<section>It's a pain mapping Objects to their Data Model Representation</section>
+				</section>
+				<section>
+					<section><h1>Non-Relational Databases</h1></section>
+					<section>
+						Key-Value Stores
+						<aside class="notes">
+							<p>These databases pair keys to values.  An analogy is a files system where the path acts as the key and the contents act as the file.  There are usually no fields to update, instead, the entire value other than the key must be updated if changes are to be made. Super Simple</p>
+							Redis, Memcache
+							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
+						</aside>
+					</section>
+					<section>Graph Stores
+						<aside class="notes">
+							Graph stores – These excel at dealing with interconnected data.  Graph databases consist of connections, or edges, between nodes.  Both nodes and their edges can store additional properties such as key-value pairs -- Difficult to scale
+							Neo4J
+							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
+						</aside>
+						
+					</section>
+					<section>Column Stores
+						<aside class="notes">
+							Column stores – Relational databases store all the data in a particular table’s rows together on-disk, making retrieval of a particular row fast.  Column-family databases generally serialize all the values of a particular column together on-disk, which makes retrieval of a large amount of a specific attribute fast -- Great for aggregate queries
+							Cassandra
+							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
+						</aside>
+						
+					</section>
+					<section>Document Stores
+						<aside class="notes">
+							Document stores – These databases store records as “documents” where a document can generally be thought of as a grouping of key-value pairs (it has nothing to do with storing actual documents such as a Word document).  Keys are always strings, and values can be stored as strings, numeric, Booleans, arrays, and other nested key-value pairs.  Values can be nested to arbitrary depths.  In a document database, each document carries its own schema — unlike an RDBMS, in which every row in a given table must have the same columns
+							MongoDB, CouchDB, Firebase, DocumentDB
+							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
+						</aside>
+						
+					</section></section>
+					<section>
+						<section><h1>MongoDB</h1></section>
+						<section>Documents Are Stored In Collections</section>
+						<section>Documents are Stored As Sweet Sweet JSON</section>
+						<section>Flexible Data Model</section>
+						<section>Immune to SQL Injection Attacks</section>
+						<section>Application Flow / Control is Code Side</section>
+						<section>
+							...but remember..
+						</section>
+						<section>In general there are less saftey nets</section>
+						<section>Not Fully ACID</section>
+						<section>Limited Support for joins</section>
+						<section>Data is denormalized, which may mean large / bulk updates</section>
+						<section>Does not have built in Data Integrity</section>
+						<section>MongoDB comes without any default authentication</section>
+						
+						<section>
+							<h2>Installing MongoDB</h2>
+							<a href="https://www.mongodb.com/download-center?jmp=tutorials#community">https://www.mongodb.com/download-center?jmp=tutorials#community</a>
+						</section>
+					</section>
+					<section>
+						<section><h1>Mongoose</h1></section>
+						<section><iframe src="https://giphy.com/embed/eyoXAcPzQyKA0" width="480" height="324" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br />
+							Mongooses? Mongoosens? Mongeeses? <br />I dunno...but they kick ass</section>
+							<section>Object Document Mapper for Mongo</section>
+							<section>Define Objects with a Strongly Typed Schema
+								<aside class="notes">
+									Types include: String, Number, Date, Buffer, Boolean, Mixed, ObjectId, Array
+								</aside>
+							</section>
+							<section>Provides Mechanisms for Data Validation
+								<aside class="notes">
+									Data Validation Includes: a default value, a custom validation function, indicate a field is required, a get function that allows you to manipulate the data before it is returned as an object, a set function that allows you to manipulate the data before it is saved to the database, minimums, maximums, case transforms, trims, regular expressions and enums
+								</aside>
+							</section>
+						</section>
+						<section>
+							<section><h1>API's</h1></section>
+							<section><img src="images/api-all-the-things.jpeg" /></section>
+							<section>Getting Some REST
+								<aside class="notes">
+									REST is an alternative to other patterns like Remote Procedure Calls, Message Queues and GraphQL
+									Resources (or objects/models) are exposed, created, modified or deleted through unique URI endpoints and HTTP Method calls							
+								</aside>
+							</section>
+							<section>Architectural Design Pattern for Constructing Web API</section>
+							<section>Resource-Based Interfaces</section>
+							<section>Each Resource has a Defined URI End Point</section>
+							<section>CRUD Operations Align with HTTP Methods</section>
 							<section>
-									<p>Dev Team should all use same versions of libraries</p>
-									<aside class="notes">
-										One of the biggest issues with the LAMP stack was mirroring your dev environment with production and keeping development environments across all developers in sync easily. 
-									</aside>
-								</section>
-
+									<p>
+											<strong>GET</strong> is used to fetch data from a server — <strong>Read</strong>
+								</p>
+									<p>
+											<strong>POST</strong> is used to send data to a server — <strong>Create</strong>
+									</p>
+									
+								<p>
+										<strong>PUT</strong> is used to send and update data <strong>Replace/Update</strong>
+								</p>
+								<p>
+									<strong>PATCH</strong> is used to send and update data <strong>Partial Update</strong>
+								</p>
+								<p>
+									<strong>DELETE</strong> is used to delete data — <strong>Delete</strong>
+								</p>
 								
-
-			</section>
-			<section>
-				<section><h1>NPM & Package Management</h1></section>
-				<section>Node.js' package ecosystem, npm, is the <strong>largest collection</strong> of open source libraries in the world.</section>
-				<section>Developers list modules they need in package.json -- modules can either be marked as required for production or just for development</section>
-<section>Developers can choose specific versions or specify rules about what versions they want</section>
-<section>Package.json gets committed to repo, while modules themselves stay out. During deployment or dev setup, just run npm install to get the right packages.</section>
-<section>Handles the complexities of the dependency chain </section>
-
+									
+							</section>
+						</section>
+						<section>
+							<section>The Six Principles of a REST API</section>
+							
+							<section>1. Client server
+								<aside class="notes">
+									By separating the user interface concerns from the data storage concerns, we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.
+								</aside>
+							</section>
+							<section>2. Stateless
+								<aside class="notes">
+									Each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. Session state is therefore kept entirely on the client.
+								</aside>
+							</section>
+							<section>3. Cacheable
+								<aside class="notes">
+									Cache constraints require that the data within a response to a request be implicitly or explicitly labeled as cacheable or non-cacheable. If a response is cacheable, then a client cache is given the right to reuse that response data for later, equivalent requests.
+								</aside>
+							</section>
+							<section>4. Uniform Interface
+								<aside class="notes">
+									the same shape of request which is made against a particular resource can reasonably be expected to act the same way against another resource (for instance, the request modifying an attribute on a Photo resource is uniform to that of modifying a similar attribute on an Album resource).
+								</aside>
+							</section>
+							<section>5. Layered System
+								<aside class="notes">
+									The layered system style allows an architecture to be composed of hierarchical layers by constraining component behavior such that each component cannot “see” beyond the immediate layer with which they are interacting.
+								</aside>
+							</section>
+							<section>6. Code on Demand (Optional)
+								<aside class="notes">
+									REST allows client functionality to be extended by downloading and executing code in the form of applets or scripts. This simplifies clients by reducing the number of features required to be pre-implemented.
+								</aside>
+							</section>
+							
+						</section>
+						<section>
+						<section>
+							<h1>We At a Hackathon</h1>
+								<iframe src="https://giphy.com/embed/10PcMWwtZSYk2k" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>	
+						</section>
+						<section>So we'll be <em>"RESTful"</em></section>
+						<section>To the Code!</section>
+					</section>
+				</div>
+			</div>
 			
-			</section>
-			<section>
-			<section><h1>MVC</h1></section>
-			<section>
-				<blockquote>"At the heart of MVC is what I call Separated Presentation. The idea behind Separated Presentation is to make a clear division between domain objects that model our perception of the real world, and presentation objects that are the GUI elements we see on the screen. Domain objects should be completely self contained and work without reference to the presentation, they should also be able to support multiple presentations, possibly simultaneously." -- Martin Fowler</blockquote>
-			</section>
-			<section><img src="images/mvc.jpg" /></section>
-		</section>
-		</div>
-	</div>
-	
-	<script src="lib/js/head.min.js"></script>
-	<script src="js/reveal.js"></script>
-	
-	<script>
-		// More info about config & dependencies:
-		// - https://github.com/hakimel/reveal.js#configuration
-		// - https://github.com/hakimel/reveal.js#dependencies
-		Reveal.initialize({
-			progress: true,
-			history: true,
-			slideNumber: false,
-			dependencies: [
-			{ src: 'plugin/markdown/marked.js' },
-			{ src: 'plugin/markdown/markdown.js' },
-			{ src: 'plugin/notes/notes.js', async: true },
-			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-			]
-		});
-	</script>
-</body>
-</html>
+			<script src="lib/js/head.min.js"></script>
+			<script src="js/reveal.js"></script>
+			
+			<script>
+				// More info about config & dependencies:
+				// - https://github.com/hakimel/reveal.js#configuration
+				// - https://github.com/hakimel/reveal.js#dependencies
+				Reveal.initialize({
+					progress: true,
+					history: true,
+					slideNumber: false,
+					dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					]
+				});
+			</script>
+		</body>
+		</html>
+		

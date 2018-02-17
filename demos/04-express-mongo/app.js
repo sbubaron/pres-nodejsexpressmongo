@@ -26,7 +26,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(config.mongo.host); // connect to our database
+// connect to our database
+mongoose.connect(config.mongo.host); 
 
 // Handle the connection event
 var db = mongoose.connection;
@@ -35,12 +36,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("DB connection alive");
 });
-
-
-
-console.log('routes');
-
-
 
 
 app.use('/', index);

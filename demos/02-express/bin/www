@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('02-express:server');
-var http = require('http');
+var app = require('../app'); //pulls in the main app.js
+var debug = require('debug')('02-express:server'); //sets up the debug module; this was installed as part of our package.json
+var http = require('http'); //loads the node http module
 
 /**
  * Get port from environment and store in Express.
@@ -19,15 +19,15 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(app); //remember from first example that create server accepts a call back function, in this case app is our function. 
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.listen(port); //tell the server to listen on our specified port (above)
+server.on('error', onError); //tell the server what to do when an error occurs
+server.on('listening', onListening); //tell the server what function to call when it starts listening.
 
 /**
  * Normalize a port into a number, string, or false.
@@ -86,5 +86,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  debug('Listening on ' + bind); //debug statement logs to console if in debug mode.
 }

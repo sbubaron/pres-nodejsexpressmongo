@@ -1,4 +1,4 @@
-// require and configure dotenv, will load vars in .env in PROCESS.ENV
+// require and configure dotenv, will load vars in .env into PROCESS.ENV
 require('dotenv').config();
 
 const envVars = process.env;

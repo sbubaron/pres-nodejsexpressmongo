@@ -1,8 +1,10 @@
 var mongoose = require('mongoose'), 
-QuoteModel = mongoose.model('Quote');
+QuoteModel = mongoose.model('Quote'); //this will create a Quote Collection
 
+//returns all quotes in db
 exports.findAll = function(req, res) {
 
+    //the empty object is equivelant to select * from
     QuoteModel.find({}, function(err, quotes) {
         if (err) {
             throw new Error(err);
@@ -13,7 +15,7 @@ exports.findAll = function(req, res) {
 
 };
 
-exports.findByTag = function(req, res) {
+exports.findByCharacter = function(req, res) {
     QuoteModel.find({character: req.params.character}, function(err, quotes) {
         if (err) {
             throw new Error(err);
