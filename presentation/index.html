@@ -48,6 +48,7 @@
 
 
 			</section>
+			
 			<section><h1>LAMP vs MEAN</h1>
 				<img style="width: 400px;" src="images/mean-lamp.jpg" />
 				<br />(Its an angry lamp....get it? /rimshot)
@@ -442,6 +443,7 @@
 								<iframe src="https://giphy.com/embed/10PcMWwtZSYk2k" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>	
 							</section>
 							<section>So we'll be <em>"RESTful"</em></section>
+							
 							<section>To the Code!</section>
 						</section>
 						<section>
@@ -449,9 +451,40 @@
 						</section>
 						<section>The End</section>
 						<section>Bonus Scenes</section>
-						<section>Authentication  JWT/Passport</section>
-						<section>Swagger</section>
+						<section>Subdocuments</section>
+						<section>More Advanced Queries in Mongoose</section>
+						<section>// With a JSON doc<br />
+								Person.<br />
+								  find({<br />
+									occupation: /host/,<br />
+									'name.last': 'Ghost',<br />
+									age: { $gt: 17, $lt: 66 },<br />
+									likes: { $in: ['vaporizing', 'talking'] }<br />
+								  }).<br />
+								  limit(10).<br />
+								  sort({ occupation: -1 }).<br />
+								  select({ name: 1, occupation: 1 }).<br />
+								  exec(callback);<br />
+								  <br />
+						</section>
+						<section>
+								// Using query builder
+								Person.
+								  find({ occupation: /host/ }).
+								  where('name.last').equals('Ghost').
+								  where('age').gt(17).lt(66).
+								  where('likes').in(['vaporizing', 'talking']).
+								  limit(10).
+								  sort('-occupation').
+								  select('name occupation').
+								  exec(callback);</section>
+						<section>ES6 & NodeJS<br /><a href="https://scotch.io/tutorials/better-node-with-es6-pt-i">https://scotch.io/tutorials/better-node-with-es6-pt-i</a></section>
+						<section>Javascript Promises<br /><a href="https://www.promisejs.org/">https://www.promisejs.org/</a></section>
+						<section>Authentication  JWT/Passport<br /><a href="https://www.djamware.com/post/5a878b3c80aca7059c142979/securing-mean-stack-angular-5-web-application-using-passport?utm_campaign=shareaholic&utm_medium=reddit&utm_source=news">These URL's are too darn long</a></section>
+						<section>Swagger<br /><a href="https://github.com/swagger-api/swagger-node">https://github.com/swagger-api/swagger-node</a></section>
+						<section>Testing<br /><a href="https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai">https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai</a></section>
 						
+
 					</section>
 					</div>
 				</div>
