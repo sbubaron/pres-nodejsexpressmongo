@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	
-	<title>reveal.js</title>
+	<title>NodeJS, Express, MongoDB</title>
 	
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
@@ -32,16 +32,16 @@
 			<section>
 				<h1>NODEJS Stack 101</h1>
 				<h2>Prerequisites</h2>
-				Clone the Repo:<br /> <a href="https://github.com/sbubaron/pres-nodejsexpressmongo">https://github.com/sbubaron/pres-nodejsexpressmongo</a><br /><br />
-				Download NodeJS:<br /> <a href="http://www.nodejs.org">http://www.nodejs.org</a> (Should have something either v6 or v8)<br />
+				Step 1: Clone the Repo:<br /> <a href="https://github.com/sbubaron/pres-nodejsexpressmongo">https://github.com/sbubaron/pres-nodejsexpressmongo</a><br /><br />
+				Step 2: Install the Stuff In ReadMe
 			</section>
 			<section><h1>LAMP vs MEAN</h1>
 				<img style="width: 400px;" src="images/mean-lamp.jpg" />
 				
 				<aside class="notes">
-					The LAMP stack is a popular platform consisting of Linux Apache, MySQL and PHP -- now certainly you can swap in and out pieces you need (WAMP Windows***, LEMP: *nginx** etc, ***Perl/PHP/Python). The focus here revolves mainly around the server side infrastructure and each tool really requires a unique skillset or atleast fairly heavy initial setup and configuration
-					The MEAN (Mongo, Express, Angular, Node) stack became popular because it simplified the initial setup and for developers standardized on a single language that could be used across the entire stack (Javascript).
-					For this talk we are going to focus on the server side Node, Express and Mongo as the Angular piece itself can easily be substituted for whatever client side framework of your choosing. 
+					<p>The LAMP stack is a popular platform consisting of Linux Apache, MySQL and PHP -- now certainly you can swap in and out pieces you need (WAMP Windows***, LEMP: *nginx** etc, ***Perl/PHP/Python). The focus here revolves mainly around the server side infrastructure and each tool really requires a unique skillset or atleast fairly heavy initial setup and configuration</p>
+					<p>The MEAN (Mongo, Express, Angular, Node) stack became popular because it simplified the initial setup and for developers standardized on a single language that could be used across the entire stack (Javascript).</p>
+					<p>For this talk we are going to focus on the server side Node, Express and Mongo as the Angular piece itself can easily be substituted for whatever client side framework of your choosing. </p>
 				</aside>
 			</section>
 			
@@ -70,19 +70,18 @@
 					<h1>JS Engines</h1>
 					<p>Parse Javascript and converts it into code that can actually be executed.</p>
 					<aside class="notes">
-						Chrome V8 JS
-						
-						Open Source Engine Developed by Chromium Project
-						First Release September 2008
-						
-						Designed to be Used both in Browser and Standalone
-						Single Threaded
-						
-						Big Users: Chrome/Chromium, Opera, Couchbase DB, NodeJS, Electron
-						
-						Other engines include: Chakra (IE), SpiderMonkey (Mozilla/Firefox), JavaScriptCore (Safari)
-						
-						Its because of these different engines and the subtle differences in which they implement the JS Spec that JS behaves differently across browsers. 
+						Chrome V8 JS<br />
+						Open Source Engine Developed by Chromium Project<br />
+						First Release September 2008<br />
+						<br />
+						Designed to be Used both in Browser and Standalone<br />
+						Single Threaded<br />
+						<br />
+						Big Users: Chrome/Chromium, Opera, Couchbase DB, NodeJS, Electron<br />
+						<br />
+						Other engines include: Chakra (IE), SpiderMonkey (Mozilla/Firefox), JavaScriptCore (Safari)<br />
+						<br />
+						Its because of these different engines and the subtle differences in which they implement the JS Spec that JS behaves differently across browsers. <br />
 					</aside>
 				</section>
 				
@@ -91,9 +90,9 @@
 					<h1>JS Runtimes</h1>
 					<p>Provide additional objects that JS can interact with.</p>
 					<aside class="notes">
-						In browsers these objects include the "window" & "dom". 
-						
-						In nodejs these include "require", "buffers" and "process"
+						In browsers these objects include the "window" & "dom". <br />
+						<br />
+						In nodejs these include "require", "buffers" and "process"<br />
 						
 					</aside>
 				</section>
@@ -138,9 +137,9 @@
 						<p>When we call something that is a non-blocking operation, Node will call some code that will run concurrently with our javascript code under the hood on its own thread.</p>
 						<p>Once that thread either throws an error or gets the data it is waiting for, the provided callback gets called with the appropriate parameters</p>
 						<p>IO operations can be orders of magnitude slower than data processing. Take this for example: SSD-s can have a read speed of 200-730 MB/s - at least a high-end one. Reading just one kilobyte of data would take 1.4 microseconds, but during this time a CPU clocked at 2GHz could have performed 28 000 of instruction-processing cycles.</p>
-						https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
-						https://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm
-						https://nodesource.com/blog/understanding-the-nodejs-event-loop
+						https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/<br />
+						https://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm<br />
+						https://nodesource.com/blog/understanding-the-nodejs-event-loop<br />
 						
 						
 					</aside>
@@ -150,14 +149,6 @@
 			<section>
 				<section><h1>Helloooo World</h1>
 					<p>It's Time to Start Getting Our Hands Dirty</p></section>
-					
-					<section>
-						
-						Clone the Repo:<br /> <a href="https://github.com/sbubaron/pres-nodejsexpressmongo">https://github.com/sbubaron/pres-nodejsexpressmongo</a><br /><br />
-						Download NodeJS:<br /> <a href="http://www.nodejs.org">http://www.nodejs.org</a><br /><br />
-						Text Editor (VSCode Recommended):<br /> <a href="http://www.vscode.com">http://www.vscode.com</a><br /><br />
-						GIT: <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> (Windows)<br /><br />
-					</section>
 					<section><img src="images/nodev.jpg" /></section>
 					<section>Explore The Code</section>
 				</section>
@@ -184,9 +175,9 @@
 					<section>
 						<p>Keep in Mind the Concept of Separations of Concerns</p>
 						<aside class="notes">
-							Write & Use Small Reusable, Testable Modules
-							The best code is often times no (or less code).
-							The more you can reuse, the less you have to test.
+							Write & Use Small Reusable, Testable Modules<br /><br />
+							The best code is often times no (or less code).<br /><br />
+							The more you can reuse, the less you have to test.<br /><br />
 						</aside>
 					</section>
 					
@@ -228,10 +219,10 @@
 					<section>
 						<img src="images/mvc.jpg" />
 						<aside class="notes">
-							Models define our "real world objects"
-							Routes forward the supported requests (and any information encoded in request URLs) to the appropriate controller functions.
-							Controller functions to get the requested data from the models, create an HTML page displaying the data, and return it to the user to view in the browser.
-							Views (templates) used by the controllers to render the data.
+							Models define our "real world objects"<br /><br />
+							Routes forward the supported requests (and any information encoded in request URLs) to the appropriate controller functions.<br /><br />
+							Controller functions to get the requested data from the models, create an HTML page displaying the data, and return it to the user to view in the browser.<br /><br />
+							Views (templates) used by the controllers to render the data.<br /><br />
 							
 							
 						</aside>
@@ -270,11 +261,11 @@
 					
 					<section>You Need ACID transactional consistency
 						<aside class="notes">
-							In computer science, ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc. In the context of databases, a sequence of database operations that satisfies the ACID properties, and thus can be perceived as a single logical operation on the data, is called a transaction. For example, a transfer of funds from one bank account to another, even involving multiple changes such as debiting one account and crediting another, is a single transaction.
-							Atomic = All or nothing, if one part fails the entire transaction fails
-							Consistency = Any transaction will bring the datbase from one valid state to another valid Started
-							Isolation = esures concurrent execution of transactions results in a system state that would be obtained if transactions were executed sequentially
-							Durability = once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors.
+							In computer science, ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc. In the context of databases, a sequence of database operations that satisfies the ACID properties, and thus can be perceived as a single logical operation on the data, is called a transaction. For example, a transfer of funds from one bank account to another, even involving multiple changes such as debiting one account and crediting another, is a single transaction.<br /><br />
+							Atomic = All or nothing, if one part fails the entire transaction fails<br /><br />
+							Consistency = Any transaction will bring the datbase from one valid state to another valid Started<br /><br />
+							Isolation = esures concurrent execution of transactions results in a system state that would be obtained if transactions were executed sequentially<br /><br />
+							Durability = once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors.<br /><br />
 							https://en.wikipedia.org/wiki/ACID
 						</aside>
 					</section>
@@ -294,29 +285,29 @@
 						Key-Value Stores
 						<aside class="notes">
 							<p>These databases pair keys to values.  An analogy is a files system where the path acts as the key and the contents act as the file.  There are usually no fields to update, instead, the entire value other than the key must be updated if changes are to be made. Super Simple</p>
-							Redis, Memcache
+							Redis, Memcache<br /><br />
 							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
 						</aside>
 					</section>
 					<section>Graph Stores
 						<aside class="notes">
-							Graph stores – These excel at dealing with interconnected data.  Graph databases consist of connections, or edges, between nodes.  Both nodes and their edges can store additional properties such as key-value pairs -- Difficult to scale
-							Neo4J
+							<p>Graph stores – These excel at dealing with interconnected data.  Graph databases consist of connections, or edges, between nodes.  Both nodes and their edges can store additional properties such as key-value pairs -- Difficult to scale</p>
+							Neo4J<br /><br />
 							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
 						</aside>
 						
 					</section>
 					<section>Column Stores
 						<aside class="notes">
-							Column stores – Relational databases store all the data in a particular table’s rows together on-disk, making retrieval of a particular row fast.  Column-family databases generally serialize all the values of a particular column together on-disk, which makes retrieval of a large amount of a specific attribute fast -- Great for aggregate queries
-							Cassandra
+							<p>Column stores – Relational databases store all the data in a particular table’s rows together on-disk, making retrieval of a particular row fast.  Column-family databases generally serialize all the values of a particular column together on-disk, which makes retrieval of a large amount of a specific attribute fast -- Great for aggregate queries</p>
+							Cassandra<br /><br />
 							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
 						</aside>
 						
 					</section>
 					<section>Document Stores
 						<aside class="notes">
-							Document stores – These databases store records as “documents” where a document can generally be thought of as a grouping of key-value pairs (it has nothing to do with storing actual documents such as a Word document).  Keys are always strings, and values can be stored as strings, numeric, Booleans, arrays, and other nested key-value pairs.  Values can be nested to arbitrary depths.  In a document database, each document carries its own schema — unlike an RDBMS, in which every row in a given table must have the same columns
+							<p>Document stores – These databases store records as “documents” where a document can generally be thought of as a grouping of key-value pairs (it has nothing to do with storing actual documents such as a Word document).  Keys are always strings, and values can be stored as strings, numeric, Booleans, arrays, and other nested key-value pairs.  Values can be nested to arbitrary depths.  In a document database, each document carries its own schema — unlike an RDBMS, in which every row in a given table must have the same columns</p>
 							MongoDB, CouchDB, Firebase, DocumentDB
 							http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/
 						</aside>
@@ -365,8 +356,8 @@
 							<section><img src="images/api-all-the-things.jpeg" /></section>
 							<section>Getting Some REST
 								<aside class="notes">
-									REST is an alternative to other patterns like Remote Procedure Calls, Message Queues and GraphQL
-									Resources (or objects/models) are exposed, created, modified or deleted through unique URI endpoints and HTTP Method calls							
+									REST is an alternative to other patterns like Remote Procedure Calls, Message Queues and GraphQL<br /><br />
+									Resources (or objects/models) are exposed, created, modified or deleted through unique URI endpoints and HTTP Method calls	<br />						
 								</aside>
 							</section>
 							<section>Architectural Design Pattern for Constructing Web API</section>
@@ -374,15 +365,15 @@
 							<section>Each Resource has a Defined URI End Point</section>
 							<section>CRUD Operations Align with HTTP Methods</section>
 							<section>
-									<p>
-											<strong>GET</strong> is used to fetch data from a server — <strong>Read</strong>
-								</p>
-									<p>
-											<strong>POST</strong> is used to send data to a server — <strong>Create</strong>
-									</p>
-									
 								<p>
-										<strong>PUT</strong> is used to send and update data <strong>Replace/Update</strong>
+									<strong>GET</strong> is used to fetch data from a server — <strong>Read</strong>
+								</p>
+								<p>
+									<strong>POST</strong> is used to send data to a server — <strong>Create</strong>
+								</p>
+								
+								<p>
+									<strong>PUT</strong> is used to send and update data <strong>Replace/Update</strong>
 								</p>
 								<p>
 									<strong>PATCH</strong> is used to send and update data <strong>Partial Update</strong>
@@ -391,7 +382,10 @@
 									<strong>DELETE</strong> is used to delete data — <strong>Delete</strong>
 								</p>
 								
-									
+								<aside class="notes">
+									Now, these are more "guidelines" the REST God's won't smite you if you implement updates using POST or only support PUT, or modify the way they work.
+									Provided you are consistent.
+								</aside>
 							</section>
 						</section>
 						<section>
@@ -399,7 +393,7 @@
 							
 							<section>1. Client server
 								<aside class="notes">
-									By separating the user interface concerns from the data storage concerns, we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.
+									By separating the user interface concerns from the data storage concerns, we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.<br /><br />
 								</aside>
 							</section>
 							<section>2. Stateless
@@ -430,35 +424,35 @@
 							
 						</section>
 						<section>
-						<section>
-							<h1>We At a Hackathon</h1>
+							<section>
+								<h1>We At a Hackathon</h1>
 								<iframe src="https://giphy.com/embed/10PcMWwtZSYk2k" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>	
+							</section>
+							<section>So we'll be <em>"RESTful"</em></section>
+							<section>To the Code!</section>
 						</section>
-						<section>So we'll be <em>"RESTful"</em></section>
-						<section>To the Code!</section>
-					</section>
+					</div>
 				</div>
-			</div>
+				
+				<script src="lib/js/head.min.js"></script>
+				<script src="js/reveal.js"></script>
+				
+				<script>
+					// More info about config & dependencies:
+					// - https://github.com/hakimel/reveal.js#configuration
+					// - https://github.com/hakimel/reveal.js#dependencies
+					Reveal.initialize({
+						progress: true,
+						history: true,
+						slideNumber: false,
+						dependencies: [
+						{ src: 'plugin/markdown/marked.js' },
+						{ src: 'plugin/markdown/markdown.js' },
+						{ src: 'plugin/notes/notes.js', async: true },
+						{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+						]
+					});
+				</script>
+			</body>
+			</html>
 			
-			<script src="lib/js/head.min.js"></script>
-			<script src="js/reveal.js"></script>
-			
-			<script>
-				// More info about config & dependencies:
-				// - https://github.com/hakimel/reveal.js#configuration
-				// - https://github.com/hakimel/reveal.js#dependencies
-				Reveal.initialize({
-					progress: true,
-					history: true,
-					slideNumber: false,
-					dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-					]
-				});
-			</script>
-		</body>
-		</html>
-		
