@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
 
     res.statusCode = 200; //200 is the status code for "OK"
     res.setHeader('Content-Type', 'text/plain'); //we should always set an appropriate content type
-    res.end('Hello World\n'); //we are sending and ending our response stream
+    res.end('Hello CEWIT Hackathon!!!\n'); //we are sending and ending our response stream
     /*
     * NOTE
     * In many examples you may also see res.send('Hello World\n')

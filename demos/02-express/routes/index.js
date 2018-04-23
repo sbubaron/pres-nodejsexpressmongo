@@ -10,4 +10,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+router.get('/test', function(req, res, next) {
+  
+  debug("test route");
+  
+  res.render('index', { title: 'Test Variable Express' });
+});
+
 module.exports = router;
